@@ -1,32 +1,70 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="app">
+    <!-- 头部 -->
+    <van-nav-bar
+      :title="title"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
+    <!-- 中间 -->
+    <router-view></router-view>
+    <!-- 底部 -->
+    <van-tabbar v-model="active">
+      <van-tabbar-item
+        icon="home-o"
+        to='/home'
+      ></van-tabbar-item>
+      <van-tabbar-item
+        icon="friends-o"
+        to='/friends'
+      ></van-tabbar-item>
+      <van-tabbar-item
+        icon="cart-o"
+        to='/cart'
+        :badge='badge'
+      ></van-tabbar-item>
+      <van-tabbar-item
+        icon="search"
+        to='/search'
+      ></van-tabbar-item>
+
+    </van-tabbar>
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  data() {
+    return {
+      title: localStorage.title || 'home',
+      active: Number(localStorage.active || 0),
+      badge: 6
+    }
+  },
+  methods: {
+    onClickLeft() {
+      this.$route.go(-1)
+    }
+  },
+  watch: {
+    '$route.meta'(meta) {
+      this.title = meta.title
+      this.active = meta.active
+
+      localStorage.title = meta.title
+      localStorage.active = meta.active
+    }
+  }
+}
+</script>
+
+<style lang='less'>
+/*  5. style中的 lang和scoped
+ lang   设置使用某个预编译样式lang="less"
+ scoped 开启组件的样式模块化，该样式只能在当前组件使用 */
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  // color: red;
 }
 </style>
