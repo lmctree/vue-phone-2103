@@ -4,6 +4,8 @@ import Home from '../views/Home/index.vue'
 import Friends from '../views/Friends/index.vue'
 import Cart from '../views/Cart/index.vue'
 import Search from '../views/Search/index.vue'
+import NewsList from '../views/Home/news/NewsList/index.vue'
+import NewsInfo from '../views/Home/news/NewsInfo/index.vue'
 
 vue.use(VueRouter)
 
@@ -42,6 +44,21 @@ const routes = [
     meta: {
       title: 'search',
       active: 3
+    }
+  },
+  {
+    path: '/home/newslist',
+    component: NewsList,
+    meta: {
+      title: '新闻列表'
+    }
+  },
+  {
+    path: '/home/newsinfo/:id',
+    component: NewsInfo,
+    props: true,
+    meta: {
+      title: '新闻详情'
     }
   }
 ]

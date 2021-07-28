@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.$route.go(-1)
+      this.$router.go(-1)
     }
   },
   watch: {

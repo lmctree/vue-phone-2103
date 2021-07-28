@@ -21,6 +21,7 @@
         :key="item.id"
         :icon="item.src"
         :text="item.title"
+        :to='item.to'
       />
     </van-grid>
   </div>
