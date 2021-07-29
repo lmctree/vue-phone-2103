@@ -69,12 +69,10 @@ export default {
     async getComments() {
       const res = await getComments({ id: this.id, pageIn: this.pageIn, pageLi: this.pageLi })
       ++this.pageIn
-      console.log(res)
       this.comments = this.comments.concat(res.data.message)
-      this.hasMore = this.pageIn * this.pageSize >= res.data.count
-      // console.log(this.comments)
+      this.hasMore = this.pageIn * this.pageLi >= res.data.count
     },
-    getMore() {
+    async getMore() {
       this.getComments()
     },
     async postComment() {

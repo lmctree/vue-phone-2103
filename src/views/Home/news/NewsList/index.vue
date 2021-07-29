@@ -39,7 +39,7 @@ export default {
     async getNewsList() {
       const res = await getNewsList()
       this.newslist = res.data.message
-      console.log(res)
+      // console.log(res)
     },
     goDetail(id) {
       this.$router.push('/home/newsinfo/' + id)
