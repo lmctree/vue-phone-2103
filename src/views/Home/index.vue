@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <van-swipe
+    <!-- <van-swipe
       class="my-swipe"
       :autoplay="3000"
       indicator-color="white"
@@ -14,7 +14,8 @@
           :alt="item.id"
         >
       </van-swipe-item>
-    </van-swipe>
+    </van-swipe> -->
+    <Swiper :lunbolist='lunbolist'></Swiper>
     <van-grid :column-num="3">
       <van-grid-item
         v-for="item in gridslist"
@@ -27,7 +28,7 @@
   </div>
 </template>
 <script>
-// import axios from 'axios'
+import Swiper from '@/components/Swiper/Swiper.vue'
 import { getLunbo, getGrids } from '../../api/home'
 export default {
   data: () => ({
@@ -47,6 +48,9 @@ export default {
       const res = await getGrids()
       this.gridslist = res.data.message
     }
+  },
+  components: {
+    Swiper
   }
 }
 </script>

@@ -5,7 +5,7 @@
       :key="item.id"
       :title="item.title"
       :thumb="item.img_url"
-      @click='goDetail(item.id)'
+      @click='goDetail("/home/newsinfo",item.id)'
     >
       <template #price>
         <div>
@@ -40,10 +40,10 @@ export default {
       const res = await getNewsList()
       this.newslist = res.data.message
       // console.log(res)
-    },
-    goDetail(id) {
-      this.$router.push('/home/newsinfo/' + id)
     }
+    // goDetail(id) {
+    //   this.$router.push('/home/newsinfo/' + id)
+    // }
   }
 }
 </script>

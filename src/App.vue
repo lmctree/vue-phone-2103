@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div id="app">
     <!-- 头部 -->
     <van-nav-bar
       :title="title"
@@ -66,5 +66,6 @@ export default {
 
 #app {
   // color: red;
+  padding-bottom: 55px;
 }
 </style>

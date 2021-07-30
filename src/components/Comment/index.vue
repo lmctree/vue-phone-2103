@@ -100,9 +100,6 @@ export default {
     border: 1px solid #ddd;
     margin: 5px 0;
   }
-  .list {
-    padding-bottom: 55px;
-  }
   .van-card {
     margin-top: 5px;
     // height: 80px;

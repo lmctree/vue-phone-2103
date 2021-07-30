@@ -8,6 +8,8 @@ import NewsList from '../views/Home/news/NewsList/index.vue'
 import NewsInfo from '../views/Home/news/NewsInfo/index.vue'
 import PhotoList from '../views/Home/photos/PhotoList/PhotoList.vue'
 import PhotoInfo from '../views/Home/photos/PhotoInfo/PhotoInfo.vue'
+import GoodsInfo from '../views/Home/goods/GoodsInfo/GoodsInfo.vue'
+import GoodsList from '../views/Home/goods/GoodsList/GoodsList.vue'
 
 vue.use(VueRouter)
 
@@ -76,6 +78,21 @@ const routes = [
     props: true,
     meta: {
       title: '图片详情'
+    }
+  },
+  {
+    path: '/home/goodslist',
+    component: GoodsList,
+    meta: {
+      title: '商品列表'
+    }
+  },
+  {
+    path: '/home/goodsinfo/:id',
+    component: GoodsInfo,
+    props: true,
+    meta: {
+      title: '商品详情'
     }
   }
 ]
